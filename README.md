@@ -1,1 +1,1 @@
-# Remove Server Header
+# Remove Server Header [![Build status](https://ci.appveyor.com/api/projects/status/20yeoq5irgvwxojc/branch/master?svg=true)](https://ci.appveyor.com/project/leonard-thieu/removeserverheader/branch/master)
