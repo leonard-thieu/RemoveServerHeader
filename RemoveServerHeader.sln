@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08A73B8D-92F1-4F5B-A6A7-4C7F8BE3372C}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		README.md = README.md
+		RemoveServerHeader\RemoveServerHeader.nuspec = RemoveServerHeader\RemoveServerHeader.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveServerHeader", "RemoveServerHeader\RemoveServerHeader.csproj", "{E8628EF8-8480-4951-9FDD-B418F271B6C8}"
