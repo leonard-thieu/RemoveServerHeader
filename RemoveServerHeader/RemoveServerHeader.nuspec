@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>toofz.RemoveServerHeader</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Remove Server Header</title>
     <authors>Leonard Thieu</authors>
     <owners>Leonard Thieu</owners>
