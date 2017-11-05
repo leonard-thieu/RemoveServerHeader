@@ -11,7 +11,6 @@
     <iconUrl>https://user-images.githubusercontent.com/5265970/29717713-27e1a95c-897e-11e7-9d28-dae64be705b5.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Removes Server header.</description>
-    <copyright>Copyright 2017</copyright>
-    <tags>remove server header</tags>
+    <copyright>Copyright © Leonard Thieu 2017</copyright>
   </metadata>
 </package>
