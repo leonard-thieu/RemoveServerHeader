@@ -3,8 +3,15 @@ using System.Web;
 
 namespace RemoveServerHeader
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class RemoveServerHeaderModule : IHttpModule
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public void Init(HttpApplication context)
         {
             context.BeginRequest += BeginRequest;
@@ -16,6 +23,9 @@ namespace RemoveServerHeader
             httpApplication?.Context?.Response.Headers.Remove("Server");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Dispose() { }
     }
 }

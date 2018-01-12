@@ -1,34 +1,31 @@
-version: 1.0.1.{build}
+version: $(VersionPrefix).{build}
 image: Visual Studio 2017
 
-branches:
-  only:
-    - master
+skip_branch_with_pr: true
+skip_commits:
+  files:
+    - LICENSE
+    - README.md
 configuration:
   - Release
 environment:
-  APPVEYOR_CACHE_ENTRY_ZIP_ARGS: -t7z -m0=lzma -mx=9
-  PROJECT: RemoveServerHeader
-  MYGET_API_KEY:
+  VersionPrefix: 0.0.0
+  VersionSuffix: dev
+  FileVersion: '%APPVEYOR_BUILD_VERSION%'
+  PackageServerApiKey:
     secure: XZmbJDCK5oiqhbLt1y7UXM6aCYPpF2tm/bJMUJzBsCe1fd2TuwXyaz99RN+bDpHw
 notifications:
   - provider: Slack
     incoming_webhook:
       secure: c7l1UmXHWpIDLL1awU4r0QYVPToYM/XjV8trFyD1oHArKxs/vBTYiKYScr1EhCUgmEX6sAFBTvkUHF/k5B+cGjzqRBR2XkAO+lzk8cHQ1FI=
-assembly_info:
-  patch: true
-  file: AssemblyInfo.cs
-  assembly_version: $(appveyor_build_version)
-
-install:
-  - nuget update -Self
-  - git clone https://github.com/leonard-thieu/toofz-build.git Scripts
   
 before_build:
-  - appveyor-retry nuget restore -Verbosity quiet
+  - nuget restore -Verbosity quiet
 build:
-  project: $(PROJECT).sln
+  project: RemoveServerHeader.sln
   verbosity: minimal
 
 deploy_script:
-  - ps: .\Scripts\Deploy-NuGetPackage.ps1
+  - ps: |
+      $projectPath = Resolve-Path .\src\RemoveServerHeader\RemoveServerHeader.csproj
+      msbuild $projectPath /nologo /verbosity:minimal /target:Pack /property:PublishPackage=$env:APPVEYOR_REPO_TAG
